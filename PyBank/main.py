@@ -20,14 +20,15 @@ selection = int(input("Which file do you want to open? "))
 csvpath = ('raw_data/' + file_list[selection])
 
 # for verifications
-# with open(csvpath1, newline = "") as csvfile1:
-#     csvreader1 = csv.reader(csvfile1, delimiter = ",")
-#     for row in csvreader1:
+# with open(csvpath, newline = "") as csvfile:
+#     csvreader = csv.reader(csvfile, delimiter = ",")
+#     for row in csvreader:
 #         print(row)
 
 with open(csvpath, newline = "") as csvfile:
     csvreader = csv.reader(csvfile, delimiter = ",")
-    total_month = sum(1 for row in csvreader) - 1
+    next(csvreader)    # skip header row
+    total_month = sum(1 for row in csvreader)
 
 total_revenue = 0
 with open(csvpath, newline = "") as csvfile:
