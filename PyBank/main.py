@@ -34,12 +34,12 @@ total_revenue = 0
 with open(csvpath, newline = "") as csvfile:
     csvreader = csv.reader(csvfile, delimiter = ",")
     for row in csvreader:
-        total_revenue = row[1]
+        monthly_revenue = row[1]
         try:
-            total_revenue = int(total_revenue)
+            monthly_revenue = int(monthly_revenue)
         except ValueError:
-            total_revenue = 0
-        total_revenue += total_revenue
+            monthly_revenue = 0
+        total_revenue = total_revenue + monthly_revenue
 
 average_revenue_change = total_revenue / total_month
 
